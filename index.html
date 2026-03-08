@@ -25,32 +25,36 @@
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
+    <!-- This script is where the main app logic lives -->
     <script type="text/babel" src="devops-platform.jsx" data-presets="react"></script>
 
-    <script type="text/babel">
-        // This script runs AFTER the external JSX is loaded and compiled
-        function StartApp() {
+    <!-- This script starts the app -->
+    <script type="text/babel" data-presets="react">
+        const { createRoot } = ReactDOM;
+        
+        function InitializeApp() {
             try {
                 const container = document.getElementById('root');
-                const root = ReactDOM.createRoot(container);
+                const root = createRoot(container);
+                
+                // Check if 'App' exists in the scope (defined in devops-platform.jsx)
                 if (typeof App !== 'undefined') {
                     root.render(<App />);
                     document.getElementById('loading').style.display = 'none';
-                    console.log("App rendered successfully");
+                    console.log("DevOps Platform Loaded Successfully");
                 } else {
-                    throw new Error("App component not found. Check if devops-platform.jsx loaded correctly.");
+                    console.log("App not ready, retrying in 1s...");
+                    setTimeout(InitializeApp, 1000);
                 }
-            } catch (e) {
-                document.getElementById('loading').innerHTML = `<div class="p-8 text-red-500">Error: ${e.message}</div>`;
-                console.error(e);
+            } catch (err) {
+                console.error("Initialization Error:", err);
+                // Don't show error immediately, as 'App' might just be compiling
+                setTimeout(InitializeApp, 2000);
             }
         }
-        
-        // Wait for all scripts to load
-        window.addEventListener('load', () => {
-           // Small delay to ensure Babel had time to process the external script
-           setTimeout(StartApp, 2000);
-        });
+
+        // Start the initialization loop
+        InitializeApp();
     </script>
 </body>
 </html>

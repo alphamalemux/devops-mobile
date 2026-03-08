@@ -22,6 +22,14 @@
     <!-- Load the main app -->
     <script type="text/babel" src="devops-platform.jsx"></script>
 
+    <script type="text/babel">
+        // Wait for devops-platform.jsx to be compiled by Babel
+        const container = document.getElementById('root');
+        const root = ReactDOM.createRoot(container);
+        // Note: The function in devops-platform.jsx is named App
+        root.render(<App />);
+    </script>
+
     <script>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {

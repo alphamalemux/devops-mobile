@@ -1,4 +1,4 @@
-
+const { useState, useEffect, useRef, useCallback, useReducer, useMemo } = React;
 
 // ─────────────────────────────────────────────────────────────
 // BREAKPOINT HOOK
@@ -21,9 +21,6 @@ function useBreakpoint() {
   }, []);
   return bp;
 }
-
-// ─────────────────────────────────────────────────────────────
-// CONSTANTS
 // ─────────────────────────────────────────────────────────────
 const AI_BACKENDS = {
   claude: {

@@ -1,0 +1,32 @@
+{
+  "name": "DevOps AI Platform",
+  "short_name": "DevOpsAI",
+  "description": "AI-powered deployment automation. Docker, Android, Rust, Python, Node.js. GitHub OAuth + webhooks.",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#020408",
+  "theme_color": "#050a0f",
+  "scope": "/",
+  "lang": "en",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'%3E%3Crect width='192' height='192' rx='40' fill='%231d4ed8'/%3E%3Ctext y='148' x='20' font-size='148'%3E⚙%3C/text%3E%3C/svg%3E",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Crect width='512' height='512' rx='96' fill='%231d4ed8'/%3E%3Ctext y='400' x='48' font-size='400'%3E⚙%3C/text%3E%3C/svg%3E",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    { "name": "Chat", "url": "/?tab=chat", "description": "AI deployment chat" },
+    { "name": "Environments", "url": "/?tab=envs", "description": "Manage environments" },
+    { "name": "GitHub", "url": "/?tab=github", "description": "GitHub repos & webhooks" },
+    { "name": "Logs", "url": "/?tab=terminal", "description": "Deployment logs" }
+  ]
+}

@@ -2012,7 +2012,7 @@ function BottomTabBar({ active, onSelect }) {
 // ─────────────────────────────────────────────────────────────
 // ROOT APP
 // ─────────────────────────────────────────────────────────────
-export default function App() {
+function App() {
   const bp = useBreakpoint(); // "phone" | "fold" | "wide"
   const isPhone = bp === "phone";
   const isFold  = bp === "fold";

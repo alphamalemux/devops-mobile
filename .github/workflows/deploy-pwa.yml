@@ -19,11 +19,16 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Install Babel
-        run: npm install @babel/core @babel/cli @babel/preset-react
+      - name: Install Dependencies
+        run: |
+          npm init -y
+          npm install @babel/core @babel/cli @babel/preset-react react react-dom
+
+      - name: Create Babel Config
+        run: echo '{"presets": ["@babel/preset-react"]}' > .babelrc
 
       - name: Transpile JSX to JS
-        run: npx babel devops-platform.jsx --out-file devops-platform.js --presets=@babel/preset-react
+        run: npx babel devops-platform.jsx --out-file devops-platform.js
 
       - name: Commit and push transpiled file
         run: |
